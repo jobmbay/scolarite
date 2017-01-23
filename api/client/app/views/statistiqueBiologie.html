@@ -1,0 +1,347 @@
+<div class="row" ng-show="affiche.Tab">
+<div class="col-md-12">
+          <!-- Custom Tabs (Pulled to the right) -->
+        <div class="nav-tabs-custom">
+          <ul class="nav nav-tabs">
+            <li class="pull-left header"><i class="fa fa-filter"></i> Faire Statistique</li> 
+             
+             <li><button type="button" class="btn btn-block btn-primary btn-default" ng-click="AfficheGraph();" style="margin-top:4px;" href="/#/accueil"><i class="fa fa-bar-chart-o"></i> Graphisme</button></li>
+              
+               <li class="dropdown">
+                <select class="form-control " data-placeholder="Option" ng-init="stat.Option='Choix Option'" ng-click="selectOption();" ng-model=stat.Option>
+                  <option selected="selected">Choix Option</option>
+                  <option >DUT</option>
+                  <option ">DST</option>
+                  <option ">DIT</option>
+                  <option ">DIC</option>
+                  <option ">LICENSE</option>
+                  <option ">MASTER</option>
+                  <option ">DEC</option>
+                  <option ">DSC</option>
+                  <option ">DSECG</option>
+                </select>
+              </li>
+
+               <li class="dropdown">
+                <select class="form-control " data-placeholder="Formation" ng-init="stat.Formation='Choix Formation'" ng-click="selectFormation();" ng-model=stat.Formation>
+                  <option selected="selected">Choix Formation</option>
+                  <option ">DST</option>
+                  <option ">DIC</option>
+                  <option ">LICENSE</option>
+                  <option ">MASTER</option>
+                  <option ">DESCAF</option>
+                </select>
+              </li>
+              <li class="dropdown">
+                <select class="form-control select2" data-placeholder="Niveau" ng-init="stat.niveau='Choix Niveau'" ng-click="selectNiveau();" ng-model=stat.niveau>
+                  <option selected="selected">Choix Niveau</option>
+                  <option ">Niveau 1</option>
+                  <option ">Niveau 2</option>
+                  <option ">Niveau 3</option>
+                  <option ">PRO</option>
+                  <option ">DESCAF</option>
+                </select>
+              </li>
+              <li class="dropdown">
+                <select class="form-control " data-placeholder="Sexe" ng-init="stat.sexe='Choix Sexe'">
+                  <option >Choix Sexe</option>
+                  <option >Masculin</option>
+                  <option>Feminin</option>
+                </select>
+              </li>
+              <li class="dropdown">
+                <select class="form-control" placeholder="Pays de naissance" ng-init="stat.nationalite='Choix nationalite'" ng-model="stat.nationalite" title="pays" selectpicker style="width:150px;">
+                  <option >Choix nationalite</option>
+                  <option ng-repeat="pay in pays">{{pay.name}}</option>
+                </select>
+              </li>
+              <li class="dropdown">
+                <select class="form-control " title="sexe" ng-init="stat.serie='Choix Serie Bac'" >
+                  <option >Choix Serie Bac</option>
+                  <option ></option>
+                  <option></option>
+                </select>
+              </li>
+              <li class="dropdown">
+                <select class="form-control " title="sexe" ng-init="stat.nature='Choix nature'">
+                  <option >Choix nature</option>
+                  <option ></option>
+                  <option></option>
+                </select>
+              </li>
+              <li><input type="number" class="form-control" name="age" placeholder="Entre l'age"></li>
+          </ul>
+            <div class="tab-content">
+              <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Tableau General Departements Biologie</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th ng-show="affiche.Option">Option</th>
+                  <th ng-show="affiche.formation">Formation</th>
+                  <th ng-show="affiche.niveau">Niveau</th>
+                  <th>Effectifs</th>
+                  <th>Eff/ Filles</th>
+                  <th>Eff/ Garcon</th>
+                </tr>
+                </thead>
+
+                            <tbody>
+                     
+                
+                <tr>
+                  <td>Informatique</td>
+                  <td>DUT</td>
+                  <td>1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Telecom</td>
+                  <td>DIC</td>
+                  <td>1</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Informatique</td>
+                  <td>DUT</td>
+                  <td>1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Informatique</td>
+                  <td>License</td>
+                  <td>1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Telecom</td>
+                  <td>Dut</td>
+                  <td></td>
+                  <td>A</td>
+                </tr>
+                <tr>
+
+                <tr>
+                  <td>Genie chimique</td>
+                  <td>Dut</td>
+                  <td>1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Genie chimique</td>
+                  <td>DIC</td>
+                  <td>1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Genie chimique</td>
+                  <td>license</td>
+                  <td>1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Indistire Alimentaire</td>
+                  <td>DUT</td>
+                  <td>2</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Indistire Alimentaire</td>
+                  <td>DIC</td>
+                  <td>1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Indistire Alimentaire</td>
+                  <td>license</td>
+                  <td>1</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Biologie applique</td>
+                  <td>license</td>
+                  <td>2</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Other browsers</td>
+                  <td>All others</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>U</td>
+                </tr>
+                
+                            </tbody>
+                
+
+                <tfoot>
+                <tr>
+                  <th ng-show="affiche.Option">Option</th>
+                  <th ng-show="affiche.formation">Formation</th>
+                  <th ng-show="affiche.niveau">Niveau</th>
+                  <th>Effectifs</th>
+                  <th>Eff/Filles</th>
+                  <th>Eff/Garcons</th>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+      
+      </div>
+            <!-- /.tab-content -->
+    </div>
+          <!-- nav-tabs-custom -->
+  </div>
+        <!-- /.col -->
+</div>
+
+
+<!-- Main content -->
+    <section class="content" ng-show="affiche.graph">
+    <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs pull-right" style="margin-right:40%;">
+             <li class="dropdown">
+                <select class="form-control select2" data-placeholder="Option" ng-init="stat.Graph0='Diagramme Circulaire'" ng-click="selectGraph();" ng-model=stat.Graph0>
+                  <option selected="selected">Diagramme Circulaire</option>
+                  <option >Diagramme en barre Filles/Garcons</option>
+                  <option >Diagramme en barre</option>
+                  <option >Diagramme en courbe</option>
+                  <option >Diagramme en Area</option>
+                </select>
+              </li>
+              <li class="pull-left header"><i class="fa fa-bar-chart-o"></i> Graphisme</li>
+              <li><button type="button" class="btn btn-block btn-primary btn-default" ng-click="AffichTableau();" style="margin-top:0px;" href="/#/accueil"><i class="fa fa-th"></i> Tableau</button></li>
+            </ul>
+            
+        </div>
+     <div class="row ">
+      <div class="col-md-12">
+      <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class="box box-info" ng-show="affiche.Graph0">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">Diagramme circulaire des effectifs</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body chart-responsive">
+              <highchart  config="chartConfig"></highchart>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- AREA CHART -->
+          <div class="box box-info" ng-show="affiche.Graph1">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">Courbe des effectifs Fille/Garcon</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body chart-responsive">
+              <highchart  config="chartline"></highchart>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+           <div class="box box-info" ng-show="affiche.Graph2">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">Diagramme en bar des effectifs</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+                      <highchart  config="chartResponsive"></highchart>
+            </div>
+            <!-- /.box-body-->
+          </div>
+          <!-- /.box -->
+
+          <!-- BAR CHART -->
+          <div class="box box-info" ng-show="affiche.Graph3">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">Diagramme en bar des effectifs Fille/Garcon</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body chart-responsive">
+              <highchart  config="chartDonut"></highchart>
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+
+          <div class="box box-info" ng-show="affiche.Graph4">
+            <div class="box-header with-border">
+              <h3 class="box-title"></h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+              <highchart  config="chartArea"></highchart>
+            </div>
+            <!-- /.box-body -->
+    </div>
+
+          <!-- DONUT CHART -->
+          
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col (LEFT) -->
+        <!-- /.col (RIGHT) -->
+       </div>
+      </div>
+      <!-- /.row -->
+
+    </section>
+    <!-- /.content -->
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+   
+  });
+</script>

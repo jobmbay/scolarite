@@ -1,0 +1,78 @@
+{
+  "name": "etudiant",
+  "plural": "etudiant",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "prenom": {
+      "type": "string"
+    },
+    "nom": {
+      "type": "string"
+    },
+    "dateNaissance": {
+      "type": "date"
+    },
+    "lieuNaissance": {
+      "type": "string"
+    },
+    "paysNaissance": {
+      "type": "string"
+    },
+    "cin": {
+      "type": "string"
+    },
+    "numeroTelephone": {
+      "type": "string"
+    },
+    "serieBac": {
+      "type": "string"
+    },
+    "numeroEtudiant": {
+      "type": "string"
+    },
+    "sexe": {
+      "type": "string"
+    },
+    "resultat": {
+      "type": "string"
+    }
+    ,
+    "anneeAcademique": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "departement": {
+      "type": "belongsTo",
+      "model": "departement",
+      "foreignKey": ""
+    },
+    "formation": {
+      "type": "belongsTo",
+      "model": "formation",
+      "foreignKey": ""
+    },
+    "option": {
+      "type": "belongsTo",
+      "model": "option",
+      "foreignKey": ""
+    },
+    "niveau": {
+      "type": "belongsTo",
+      "model": "niveau",
+      "foreignKey": ""
+    },
+    "classe": {
+      "type": "belongsTo",
+      "model": "classe",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

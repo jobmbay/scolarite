@@ -1,0 +1,34 @@
+{
+  "name": "option",
+  "plural": "option",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nomOption": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "etudiants": {
+      "type": "hasMany",
+      "model": "etudiant",
+      "foreignKey": ""
+    },
+    "departement": {
+      "type": "belongsTo",
+      "model": "departement",
+      "foreignKey": ""
+    },
+    "classes": {
+      "type": "hasMany",
+      "model": "classe",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

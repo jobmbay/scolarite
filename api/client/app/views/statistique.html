@@ -1,0 +1,295 @@
+<div class="row" ng-show="affiche.Tab">
+<div class="col-md-12">
+          <!-- Custom Tabs (Pulled to the right) -->
+        <div class="nav-tabs-custom">
+          <ul class="nav nav-tabs">
+            <li class="col-md-3 pull-left header"><i class="fa fa-th"></i> Faire Statistique</li> 
+             
+             <li class="col-md-2"><button type="button" class="btn btn-block btn-primary btn-default" ng-click="AfficheGraph();" style="margin-top:4px;" href="/#/accueil"><i class="fa fa-bar-chart-o"></i> Graphisme</button></li>
+
+             <li class="col-md-2"></li>
+  
+             <li class="col-md-2"><button type="button" class="btn btn-block  btn-default" ng-click="" style="margin-top:4px;" href="/#/accueil"><i class="fa fa-file-excel-o"></i> Exporter Excel</button></li>
+
+             <li class="col-md-2"><button type="button" class="btn btn-block btn-default" ng-click="" style="margin-top:4px;" href="/#/accueil"><i class="fa  fa-file-pdf-o"></i> Exporter PDF</button></li>
+          </ul>
+          <br>
+          <ul class="nav nav-tabs">
+              <li class="dropdown">
+                <select class="form-control " placeholder="Niveau" ng-init="stat.departement='Tous les departements'" ng-model=stat.departement>
+                <option selected>Tous les departements</option>
+                <option ng-repeat="departement in departements">{{departement.nomDepartement}}
+                </option>
+                </select>
+              </li>
+              
+               <li class="dropdown">
+                <select class="form-control " data-placeholder="Option" ng-init="stat.option='Toutes les options'" ng-click="selectOption();" ng-model=stat.option>
+                <option selected>Toutes les options</option>
+                <option ng-repeat="option in options">{{option.nomOption}}
+                </option>
+                </select>
+              </li>
+
+               <li class="dropdown">
+                <select class="form-control " data-placeholder="Formation" ng-init="stat.formation='Toutes les formations'" ng-click="selectFormation();" ng-model=stat.formation>
+                <option selected>Toutes les formations</option>
+                <option ng-repeat="formation in formations">{{formation.nomFormation}}
+                </option>
+                </select>
+              </li>
+              <li class="dropdown">
+                <select class="form-control select2" data-placeholder="Niveau" ng-init="stat.niveau='Tous les niveaux'" ng-model=stat.niveau>
+                <option selected>Tous les niveaux</option>
+                <option ng-repeat="niveau in niveaux">{{niveau.nomNiveau}}
+                </option>
+                </select>
+              </li>
+              <li class="dropdown">
+                <select class="form-control" ng-model="stat.sexe" data-placeholder="Sexe" ng-init="stat.sexe='Tous les sexes'">
+                  <option >Tous les sexes</option>
+                  <option >Masculin</option>
+                  <option>Feminin</option>
+                </select>
+              </li>
+              <li class="dropdown">
+                <select class="form-control" placeholder="Pays de naissance" ng-init="stat.paysnaissance='Tous les nationalites'" ng-model="stat.paysnaissance" selectpicker style="width:150px;">
+                  <option >Tous les nationalites</option>
+                  <option ng-repeat="pay in pays">{{pay.name}}</option>
+
+                </select>
+              </li>
+              <li class="dropdown">
+                <select ng-model="stat.seriebac" class="form-control " title="sexe" ng-init="stat.seriebac='Toutes les series'" >
+                  <option >Toutes les series</option>
+                  <option >S1</option>
+                  <option>S2</option>
+                  <option >S3</option>
+                  <option>S4</option>
+                  <option >S5</option>
+                  <option>L1</option>
+                  <option >L2</option>
+                  <option>G</option>
+                  <option >T</option>
+                </select>
+              </li>
+              <li class="dropdown">
+                <select class="form-control" ng-model="stat.nature" title="sexe" ng-init="stat.nature='Toutes les natures'">
+                  <option >Toutes les natures</option>
+                  <option >Soir</option>
+                  <option>Matin</option>
+                </select>
+              </li>
+          </ul>
+            <div class="tab-content">
+              <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Tableau General departements</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Prenom</th>
+                  <th>Nom</th>
+                  <th ng-if="affiche.departement">Departements</th>
+                  <th ng-if="affiche.option">Option</th>
+                  <th ng-if="affiche.formation">Formation</th>
+                  <th ng-if="affiche.niveau">Niveau</th>
+                  <th ng-if="affiche.sexe">Sexe</th>
+                  <th ng-if="affiche.paysnaissance">Nationalité</th>
+                  <th ng-if="affiche.bac">Serie Bac</th>
+                  <th ng-if="affiche.nature">Nature cours</th>
+                  <th ng-if="affiche.age">Age</th>
+
+                  <!--<th>Effectifs</th>
+                  <th>Eff/ Filles</th>
+                  <th>Eff/ Garcon</th>-->
+                </tr>
+                </thead>
+
+                <tbody>                     
+                
+                <tr ng-repeat="resultat in resultats">
+                  <td>{{resultat.prenom}}</td>
+                  <td>{{resultat.nom}}</td>
+                  <td ng-if="affiche.departement">{{resultat.departement.nomDepartement}}</td>
+                  <td ng-if="affiche.option">{{resultat.option.nomOption}}</td>
+                  <td ng-if="affiche.formation">{{resultat.formation.nomFormation}}</td>
+                  <td ng-if="affiche.niveau">{{resultat.niveau.nomNiveau}}</td>
+                  <td ng-if="affiche.sexe">{{resultat.sexe}}</td>
+                  <td ng-if="affiche.paysnaissance">{{resultat.paysnaissance}}</td>
+                  <td ng-if="affiche.bac">{{resultat.seriebac}}</td>
+                  <td ng-if="affiche.nature">{{resultat.nature}}</td>
+                </tr>
+
+                </tbody>
+                
+
+                <tfoot>
+                <tr>
+                  <th>Prenom</th>
+                  <th>Nom</th>
+                  <th ng-if="affiche.departement">Departements</th>
+                  <th ng-if="affiche.option">Option</th>
+                  <th ng-if="affiche.formation">Formation</th>
+                  <th ng-if="affiche.niveau">Niveau</th>
+                  <th ng-if="affiche.sexe">Sexe</th>
+                  <th ng-if="affiche.paysnaissance">Nationalité</th>
+                  <th ng-if="affiche.bac">Serie Bac</th>
+                  <th ng-if="affiche.nature">Nature cours</th>
+                  <th ng-if="affiche.age">Age</th>
+
+                  <!--<th>Effectifs</th>
+                  <th>Eff/ Filles</th>
+                  <th>Eff/ Garcon</th>-->
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+      
+      </div>
+            <!-- /.tab-content -->
+    </div>
+          <!-- nav-tabs-custom -->
+  </div>
+        <!-- /.col -->
+</div>
+
+
+<!-- Main content -->
+    <section class="content" ng-show="affiche.graph">
+    <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs pull-right" style="margin-right:40%;">
+             <li class="dropdown">
+                <select class="form-control select2" data-placeholder="Option" ng-init="stat.Graph0='Diagramme Circulaire'" ng-click="selectGraph();" ng-model=stat.Graph0>
+                  <option selected="selected">Diagramme Circulaire</option>
+                  <option >Diagramme en barre Filles/Garcons</option>
+                  <option >Diagramme en barre</option>
+                  <option >Diagramme en courbe</option>
+                  <option >Diagramme en Area</option>
+                </select>
+              </li>
+              <li class="pull-left header"><i class="fa fa-bar-chart-o"></i> Graphisme</li>
+              <li><button type="button" class="btn btn-block btn-primary btn-default" ng-click="AffichTableau();" style="margin-top:0px;" href="/#/accueil"><i class="fa fa-th"></i> Tableau</button></li>
+            </ul>
+            
+        </div>
+     <div class="row ">
+      <div class="col-md-12">
+      <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class="box box-info" ng-show="affiche.graph0">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">Diagramme circulaire des effectifs</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body chart-responsive">
+              <highchart  config="chartConfig"></highchart>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- AREA CHART -->
+          <div class="box box-info" ng-show="affiche.graph1">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">Courbe des effectifs Fille/Garcon</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body chart-responsive">
+              <highchart  config="chartline"></highchart>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+           <div class="box box-info" ng-show="affiche.graph2">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">Diagramme en bar des effectifs</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+                      <highchart  config="chartResponsive"></highchart>
+            </div>
+            <!-- /.box-body-->
+          </div>
+          <!-- /.box -->
+
+          <!-- BAR CHART -->
+          <div class="box box-info" ng-show="affiche.graph3">
+            <div class="box-header with-border">
+              <i class="fa fa-bar-chart-o"></i>
+
+              <h3 class="box-title">Diagramme en bar des effectifs Fille/Garcon</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body chart-responsive">
+              <highchart  config="chartDonut"></highchart>
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+
+          <div class="box box-info" ng-show="affiche.graph4">
+            <div class="box-header with-border">
+              <h3 class="box-title"></h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <div class="box-body">
+              <highchart  config="chartArea"></highchart>
+            </div>
+            <!-- /.box-body -->
+    </div>
+
+          <!-- DONUT CHART -->
+          
+          <!-- /.box -->
+
+        </div>
+        <!-- /.col (LEFT) -->
+        <!-- /.col (RIGHT) -->
+       </div>
+      </div>
+      <!-- /.row -->
+
+    </section>
+    <!-- /.content -->
+
+<script>
+  $(function () {
+    $("#example1").DataTable();
+   
+  });
+</script>

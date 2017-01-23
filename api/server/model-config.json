@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "scolariteEsp"
+  },
+  "AccessToken": {
+    "dataSource": "scolariteEsp",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "scolariteEsp",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "scolariteEsp",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "scolariteEsp",
+    "public": false
+  },
+  "etudiant": {
+    "dataSource": "scolariteEsp",
+    "public": true
+  },
+  "departement": {
+    "dataSource": "scolariteEsp",
+    "public": true
+  },
+  "formation": {
+    "dataSource": "scolariteEsp",
+    "public": true
+  },
+  "niveau": {
+    "dataSource": "scolariteEsp",
+    "public": true
+  },
+  "option": {
+    "dataSource": "scolariteEsp",
+    "public": true
+  },
+  "classe": {
+    "dataSource": "scolariteEsp",
+    "public": true
+  }
+}

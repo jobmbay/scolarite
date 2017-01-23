@@ -1,0 +1,29 @@
+{
+  "name": "formation",
+  "plural": "formation",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nomFormation": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "etudiants": {
+      "type": "hasMany",
+      "model": "etudiant",
+      "foreignKey": ""
+    },
+    "classes": {
+      "type": "hasMany",
+      "model": "classe",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

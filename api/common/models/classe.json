@@ -1,0 +1,50 @@
+{
+  "name": "classe",
+  "plural": "classe",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nature": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "anneeAcedimique": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "etudiants": {
+      "type": "hasMany",
+      "model": "etudiant",
+      "foreignKey": ""
+    },
+    "departement": {
+      "type": "belongsTo",
+      "model": "departement",
+      "foreignKey": ""
+    },
+    "option": {
+      "type": "belongsTo",
+      "model": "option",
+      "foreignKey": ""
+    },
+    "formation": {
+      "type": "belongsTo",
+      "model": "formation",
+      "foreignKey": ""
+    },
+    "niveau": {
+      "type": "belongsTo",
+      "model": "niveau",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,12 @@
+{
+  "scolariteEsp": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb://localhost:27017/scolariteEsp",
+    "database": "scolariteEsp",
+    "password": "",
+    "name": "scolariteEsp",
+    "user": "",
+    "connector": "mongodb"
+  }
+}
